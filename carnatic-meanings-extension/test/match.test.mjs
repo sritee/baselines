@@ -26,6 +26,7 @@ test("matches real-world style titles", () => {
     "Brochevarevarura - Khamas - Mysore Vasudevachar": "brochevarevarura",
     "Jagadananda Karaka (Nata) Pancharatna": "jagadananda-karaka",
     "Ilalo Pranatarti - Atana - Tyagaraja": "ilalo",
+    "DACHUKOVALENA | Thodi | Live": "dachukovalena",
   };
   for (const [title, id] of Object.entries(cases)) assert.equal(matchSong(title, songs)?.song.id, id, title);
   assert.equal(matchSong("Lo-fi beats to study to", songs), null);

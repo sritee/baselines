@@ -1615,6 +1615,51 @@
    }
   },
   {
+   "source": "https://www.karnatik.com/c2246.shtml",
+   "title": "dAcukO valenA",
+   "raga": "tODi",
+   "tala": "jhampa",
+   "composer": "Tyaagaraaja",
+   "language": "Telugu",
+   "sections": [
+    {
+     "name": "pallavi",
+     "lines": [
+      "dAcukO valenO dAsharathi nIdu daya"
+     ]
+    },
+    {
+     "name": "anupallavi",
+     "lines": [
+      "cUcuvAralalOna culakane nannu jUci"
+     ]
+    },
+    {
+     "name": "caraNam 1",
+     "lines": [
+      "kanikaramu kAntapai galigi muddiDu vELa janakaja nAmATa samayamani balkina"
+     ]
+    },
+    {
+     "name": "caraNam 2",
+     "lines": [
+      "karagi padamulanu vrAla gani karuNa sEyuvELa bharatuDentO nannu bhaktuDani balkitE"
+     ]
+    },
+    {
+     "name": "caraNam 3",
+     "lines": [
+      "nEmamuna paricarya nErpuna bOgaDu vELa saumitri tyAgarAjuni mATa balkina"
+     ]
+    }
+   ],
+   "curated": {
+    "title": "dachukovalena",
+    "raga": "todi",
+    "composer": "Tyagaraja"
+   }
+  },
+  {
    "source": "https://www.karnatik.com/c1514.shtml",
    "title": "kaligiyunTEgadA",
    "raga": "keeravaaNi",

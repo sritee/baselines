@@ -9,7 +9,7 @@ A Chrome extension that shows the lyrics and English meaning of a Carnatic song 
 
 ## How it works
 
-1. **Finding the song.** The extension compares the video title with its database of 223 frequently performed concert pieces, allowing for different spellings (*Vathapi / Vaatapi / vAtApi*, *Bantureethi / banTu rIti*, *Alaipayuthey / alai pAyudE*). Short titles such as *Ilalo* only count when the raga name is in the title too. If nothing matches, pick the song from the dropdown.
+1. **Finding the song.** The extension compares the video title with its database of 224 frequently performed concert pieces, allowing for different spellings (*Vathapi / Vaatapi / vAtApi*, *Bantureethi / banTu rIti*, *Alaipayuthey / alai pAyudE*). Short titles such as *Ilalo* only count when the raga name is in the title too. If nothing matches, pick the song from the dropdown.
 2. **Reading along.** The sidebar lists every line of the song, section by section, each with its English meaning, plus a short summary of the song. That's all you need to follow a concert.
 3. **Optional timing.** To have the current line highlighted, press **Sync** and click each line as it begins (keys: **N** next line, **R** repeat line, **U** undo). Chips mark *Alapana, Tanam, Niraval, Kalpanaswaram* and *Tani avartanam*. Timings are saved per video, because no two performances have the same timing, and can be exported or imported as JSON.
 
@@ -22,7 +22,7 @@ A Chrome extension that shows the lyrics and English meaning of a Carnatic song 
 | Lyrics, raga, tala, language | Scraped from [karnatik.com](https://www.karnatik.com) by `tools/scrape_karnatik.py` (one request per second, cached). Each song keeps a link to its source page. |
 | Line-by-line English meanings and summaries | Written for this project in `data/meanings/*.json`. karnatik.com's own meanings are prose paragraphs written by the site, so they aren't copied. |
 
-- **Which songs.** `tools/top_songs.tsv` is a hand-curated list of 223 pieces that come up often in concerts: Tyagaraja (130), Dikshitar (34), Syama Sastri, Swati Tirunal, Purandaradasa, Annamacharya, Sadasiva Brahmendra, Oottukkadu and others. No public dataset of concert frequencies was available, so this list reflects common repertoire rather than measured counts.
+- **Which songs.** `tools/top_songs.tsv` is a hand-curated list of 224 pieces that come up often in concerts: Tyagaraja (131), Dikshitar (34), Syama Sastri, Swati Tirunal, Purandaradasa, Annamacharya, Sadasiva Brahmendra, Oottukkadu and others. No public dataset of concert frequencies was available, so this list reflects common repertoire rather than measured counts.
 - **Copyright.** The list only includes composers whose works are in the public domain in India (died before 1966). Popular pieces by Papanasam Sivan, Periyasami Thooran and others are left out for that reason.
 - **Accuracy.** The meanings were drafted with AI assistance, and some lines are approximate, especially where the karnatik.com text is irregular. They haven't yet been reviewed by a Sanskrit, Telugu, Tamil or Kannada scholar. Corrections to `data/meanings/*.json` are welcome.
 

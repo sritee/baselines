@@ -2682,6 +2682,72 @@
    ]
   },
   {
+   "id": "dachukovalena",
+   "title": "dAcukO valenA",
+   "aliases": [
+    "dAcukO valenA",
+    "dachukovalena"
+   ],
+   "composer": "Tyagaraja",
+   "raga": "Todi",
+   "tala": "Jhampa",
+   "language": "Telugu",
+   "summary": "Tyagaraja asks Rama why he must hide his compassion, and imagines Sita, Bharata and Lakshmana putting in a word for him at just the right moment.",
+   "lyricsSource": "https://www.karnatik.com/c2246.shtml",
+   "sections": [
+    {
+     "name": "Pallavi",
+     "lines": [
+      {
+       "id": "p1",
+       "text": "dAcukO valenO dAsharathi nIdu daya",
+       "meaning": "Must you hide your compassion, O son of Dasharatha?"
+      }
+     ]
+    },
+    {
+     "name": "Anupallavi",
+     "lines": [
+      {
+       "id": "a1",
+       "text": "cUcuvAralalOna culakane nannu jUci",
+       "meaning": "Seeing that I am looked down upon by the onlookers — (must you still hide it)?"
+      }
+     ]
+    },
+    {
+     "name": "Charanam 1",
+     "lines": [
+      {
+       "id": "c1",
+       "text": "kanikaramu kAntapai galigi muddiDu vELa janakaja nAmATa samayamani balkina",
+       "meaning": "When, full of affection for your beloved, you kiss her, if Janaki says 'this is the moment' and speaks a word for me —"
+      }
+     ]
+    },
+    {
+     "name": "Charanam 2",
+     "lines": [
+      {
+       "id": "c2",
+       "text": "karagi padamulanu vrAla gani karuNa sEyuvELa bharatuDentO nannu bhaktuDani balkitE",
+       "meaning": "when you melt as Bharata falls at your feet and you shower him with kindness, if Bharata tells you how devoted I am —"
+      }
+     ]
+    },
+    {
+     "name": "Charanam 3",
+     "lines": [
+      {
+       "id": "c3",
+       "text": "nEmamuna paricarya nErpuna bOgaDu vELa saumitri tyAgarAjuni mATa balkina",
+       "meaning": "when Saumitri praises you skilfully as he serves you with devotion, if he speaks a word for Tyagaraja — (must you still hide your compassion?)"
+      }
+     ]
+    }
+   ]
+  },
+  {
    "id": "kaligiyunte",
    "title": "kaligiyunTEgadA",
    "aliases": [

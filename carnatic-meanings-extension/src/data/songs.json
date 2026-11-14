@@ -1,0 +1,124 @@
+{
+  "version": 1,
+  "songs": [
+    {
+      "id": "vatapi-ganapatim",
+      "title": "Vātāpi Gaṇapatiṃ Bhaje'haṃ",
+      "aliases": ["Vatapi Ganapatim", "Vathapi Ganapathim", "Vatapi Ganapathim Bhaje", "Vatapi"],
+      "composer": "Muthuswami Dikshitar",
+      "raga": "Hamsadhwani",
+      "tala": "Adi",
+      "language": "Sanskrit",
+      "summary": "A prayer to Ganapati enshrined at Vatapi. Dikshitar describes his iconography and his place in the Muladhara chakra, and signs with his mudra 'Guruguha' and the raga's name, Hamsadhwani.",
+      "sections": [
+        {
+          "name": "Pallavi",
+          "lines": [
+            { "id": "p1", "text": "vātāpi gaṇapatiṃ bhaje'haṃ", "meaning": "I worship Ganapati of Vatapi," },
+            { "id": "p2", "text": "vāraṇāsyaṃ varapradaṃ śrī", "meaning": "the elephant-faced one, the giver of boons." }
+          ]
+        },
+        {
+          "name": "Anupallavi",
+          "lines": [
+            { "id": "a1", "text": "bhūtādi saṃsevita caraṇaṃ", "meaning": "Whose feet are served by the bhūtas (beings) and others," },
+            { "id": "a2", "text": "bhūta bhautika prapañca bharaṇaṃ", "meaning": "who sustains the world made of the elements and all that comes from them," },
+            { "id": "a3", "text": "vītarāgiṇaṃ vinuta yoginaṃ", "meaning": "who is free of attachment and is praised by yogis," },
+            { "id": "a4", "text": "viśvakāraṇaṃ vighnavāraṇaṃ", "meaning": "the cause of the universe, the remover of obstacles." }
+          ]
+        },
+        {
+          "name": "Charanam",
+          "lines": [
+            { "id": "c1", "text": "purā kumbhasambhava munivara prapūjitaṃ", "meaning": "Worshipped long ago by Agastya, the great sage born of a pot," },
+            { "id": "c2", "text": "trikoṇa madhyagataṃ", "meaning": "who dwells at the centre of the triangle (of the sacred yantra)," },
+            { "id": "c3", "text": "murāri pramukhādyupāsitaṃ", "meaning": "worshipped by Vishnu (Murari) and the other chief gods," },
+            { "id": "c4", "text": "mūlādhāra kṣetra sthitaṃ", "meaning": "who resides in the Muladhara, the root chakra," },
+            { "id": "c5", "text": "parādi catvāri vāgātmakaṃ", "meaning": "who is the essence of the four levels of speech, beginning with Para," },
+            { "id": "c6", "text": "praṇava svarūpa vakratuṇḍaṃ", "meaning": "the curved-trunked one whose very form is Om," },
+            { "id": "c7", "text": "nirantaraṃ niṭila candrakhaṇḍaṃ", "meaning": "who always wears the crescent moon on his forehead," },
+            { "id": "c8", "text": "nija vāmakara vidhṛtekṣudaṇḍaṃ", "meaning": "who holds a stalk of sugarcane in his left hand." }
+          ]
+        },
+        {
+          "name": "Charanam (madhyamakala)",
+          "lines": [
+            { "id": "m1", "text": "karāmbuja pāśa bījāpūraṃ", "meaning": "Who holds the noose and the citron fruit in his lotus hands," },
+            { "id": "m2", "text": "kaluṣa vidūraṃ bhūtākāraṃ", "meaning": "who is far removed from all impurity, whose form is vast," },
+            { "id": "m3", "text": "harādi guruguha toṣita bimbaṃ", "meaning": "whose form delights Shiva (Hara), Guruguha and others," },
+            { "id": "m4", "text": "haṃsadhvani bhūṣita herambaṃ", "meaning": "Heramba (Ganapati), adorned by the raga Hamsadhwani." }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "nagumomu-ganaleni",
+      "title": "Nagumomu Ganaleni",
+      "aliases": ["Nagumomu", "Nagu Momu", "Nagumomu Kanaleni", "Nagumomu Galavani"],
+      "composer": "Tyagaraja",
+      "raga": "Abheri",
+      "tala": "Adi",
+      "language": "Telugu",
+      "summary": "Tyagaraja pleads with Rama to come and protect him, unable to bear not seeing his smiling face. He wonders whether Rama's attendants or Garuda are to blame for the delay.",
+      "sections": [
+        {
+          "name": "Pallavi",
+          "lines": [
+            { "id": "p1", "text": "nagumomu ganaleni nā jāli telisi", "meaning": "Knowing my anguish at not seeing your smiling face," },
+            { "id": "p2", "text": "nanu brova rādā śrī raghuvara nī", "meaning": "won't you come and protect me, O Sri Raghuvara?" }
+          ]
+        },
+        {
+          "name": "Anupallavi",
+          "lines": [
+            { "id": "a1", "text": "nagarāja dhara nīdu parivārulella", "meaning": "O bearer of the king of mountains (Govardhana), all those around you —" },
+            { "id": "a2", "text": "ogi bodhana jesevāralu gāre itluṇḍuduṛā", "meaning": "aren't they the ones who give you good counsel? Would they leave you like this?" }
+          ]
+        },
+        {
+          "name": "Charanam",
+          "lines": [
+            { "id": "c1", "text": "khagarāju nī yānati vini vega canaledo", "meaning": "Did Garuda, king of birds, not set off quickly on hearing your command?" },
+            { "id": "c2", "text": "gaganānikilaku bahu dūrambaninādo", "meaning": "Or did he say that the earth is too far from the heavens?" },
+            { "id": "c3", "text": "jagamele paramātma evarito moraliḍudu", "meaning": "O Supreme Being who rules the world, to whom else can I appeal?" },
+            { "id": "c4", "text": "vaga jūpaku tāḷanu nannēlukora tyāgarājanuta", "meaning": "Don't show me indifference, I cannot bear it. Take me as your own, O one praised by Tyagaraja." }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "bantu-reethi",
+      "title": "Bantu Rīti Koluvu",
+      "aliases": ["Bantureethi", "Bantu Reethi", "Bantu Riti", "Banturiti Koluvu", "Bantureethi Koluvu"],
+      "composer": "Tyagaraja",
+      "raga": "Hamsanadam",
+      "tala": "Adi",
+      "language": "Telugu",
+      "summary": "Tyagaraja asks Rama for a soldier's post in his court. His armour, badge and sword are his devotion: the thrill of bhakti, the mark of Rama's devotee, and the name of Rama.",
+      "sections": [
+        {
+          "name": "Pallavi",
+          "lines": [
+            { "id": "p1", "text": "bantu rīti koluvu iyyavayya rāma", "meaning": "O Rama, grant me a post in your court, the way a soldier serves." }
+          ]
+        },
+        {
+          "name": "Anupallavi",
+          "lines": [
+            { "id": "a1", "text": "tuṇṭa viṇṭivāni modalaina", "meaning": "(The service of one who) starting with Manmatha, the wielder of the sugarcane bow," },
+            { "id": "a2", "text": "madādula goṭṭi nela kūlajeyu nija", "meaning": "strikes down pride and the other inner enemies and fells them to the ground — that true service." }
+          ]
+        },
+        {
+          "name": "Charanam",
+          "lines": [
+            { "id": "c1", "text": "romāñcamane ghana kañcukamu", "meaning": "The thrill of devotion that raises the hair, as my mighty armour," },
+            { "id": "c2", "text": "rāma bhaktuḍanu mudra billayu", "meaning": "the badge that marks me as Rama's devotee," },
+            { "id": "c3", "text": "rāma nāmamane vara khaḍgamivi", "meaning": "and the fine sword that is Rama's name — these" },
+            { "id": "c4", "text": "rājillunayya tyāgarājunike", "meaning": "shine on this Tyagaraja, O Lord." }
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -53,6 +53,8 @@ html[dark] .cm-panel {
 .cm-sub { color: var(--cm-muted); font-size: 13px; }
 .cm-summary { margin: 6px 0 0; font-size: 13px; color: var(--cm-muted); }
 .cm-note { margin: 6px 0 0; font-size: 12px; color: var(--cm-accent); }
+.cm-credit { margin: 6px 0 0; font-size: 12px; color: var(--cm-muted); }
+.cm-credit a { color: inherit; }
 
 .cm-controls { display: flex; flex-wrap: wrap; gap: 6px; margin: 10px 0 6px; }
 .cm-select, .cm-btn {

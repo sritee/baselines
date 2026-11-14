@@ -4,3 +4,4 @@ test/fixtures/*.webm
 test/screenshots/
 # The repo root ignores every "src" directory; this one is the extension source.
 !src/
+tools/.cache/

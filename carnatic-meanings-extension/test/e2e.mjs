@@ -69,30 +69,34 @@ const time = () => p.evaluate(() => document.querySelector("video").currentTime)
 await p.goto("https://www.youtube.com/watch?v=V1");
 await p.waitForSelector("#secondary-inner > #cm-panel", { timeout: 10000 });
 await p.evaluate(() => new Promise((r) => { const v = document.querySelector("video"); v.readyState >= 1 ? r() : v.addEventListener("loadedmetadata", r, { once: true }); }));
-assert.match(await p.textContent(".cm-title"), /Vātāpi/);
-assert.match(await p.textContent(".cm-sub"), /Dikshitar · Raga Hamsadhwani · Adi tala/);
-assert.match(await p.textContent(".cm-status"), /Not timed yet/);
+assert.match(await p.textContent(".cm-title"), /vAtApi gaNapatim/);
+assert.match(await p.textContent(".cm-sub"), /Dikshitar · Raga Hamsadhvani · Adi tala · Sanskrit/);
+assert.match(await p.textContent(".cm-credit"), /karnatik\.com/);
+assert.match(await p.textContent(".cm-status"), /Optional: press Sync/);
+assert.equal(await p.locator(".cm-now").textContent(), "", "no now-playing card before timing");
+assert.ok((await p.locator(".cm-line").count()) >= 8, "all lines listed");
+await p.locator("#cm-panel").screenshot({ path: path.join(shots, "panel-untimed.png") });
 console.log("✓ auto-detected song from title and mounted in the right column");
 
 // Time a few lines (video paused, so taps land exactly at the playhead).
 await p.click(".cm-btn-primary");
 await seek(2); await p.click(".cm-chip[title^='Alapana']");
 await seek(10); await p.click(".cm-line[data-ref='p1']");
-await seek(16); await p.click(".cm-line[data-ref='p2']");
-await seek(24); await p.keyboard.press("n"); // next line → a1
-await seek(30); await p.keyboard.press("r"); // repeat a1
-await seek(34); await p.keyboard.press("n"); await p.keyboard.press("u"); // add a2 then undo it
+await seek(16); await p.click(".cm-line[data-ref='a1']");
+await seek(24); await p.keyboard.press("n"); // next line → c1
+await seek(30); await p.keyboard.press("r"); // repeat c1
+await seek(34); await p.keyboard.press("n"); await p.keyboard.press("u"); // add c2 then undo it
 await p.click(".cm-btn-primary"); // Done
 assert.match(await p.textContent(".cm-status"), /^5 timing marks/);
 console.log("✓ sync mode: clicks, marker chips and N/R/U keys record cues");
 
 await seek(17);
-await p.waitForSelector(".cm-line.cm-active[data-ref='p2']");
-assert.match(await p.textContent(".cm-now-meaning"), /giver of boons/);
+await p.waitForSelector(".cm-line.cm-active[data-ref='a1']");
+assert.match(await p.textContent(".cm-now-meaning"), /served by the bhutas/);
 await seek(5);
 await p.waitForFunction(() => /Alapana/.test(document.querySelector(".cm-now-section").textContent));
 await seek(26);
-await p.waitForSelector(".cm-line.cm-active[data-ref='a1']");
+await p.waitForSelector(".cm-line.cm-active[data-ref='c1']");
 console.log("✓ highlight + now-playing card follow the playhead");
 
 await p.click(".cm-line[data-ref='p1']");
@@ -102,12 +106,12 @@ console.log("✓ clicking a timed line seeks the video");
 // Play for real and check the highlight advances on its own.
 await seek(14.5);
 await p.evaluate(() => document.querySelector("video").play());
-await p.waitForSelector(".cm-line.cm-active[data-ref='p2']", { timeout: 5000 });
+await p.waitForSelector(".cm-line.cm-active[data-ref='a1']", { timeout: 5000 });
 await p.evaluate(() => document.querySelector("video").pause());
 console.log("✓ highlight advances during playback");
 
 await seek(17);
-await p.waitForSelector(".cm-line.cm-active[data-ref='p2']");
+await p.waitForSelector(".cm-line.cm-active[data-ref='a1']");
 await p.locator("#cm-panel").screenshot({ path: path.join(shots, "panel-light.png") });
 await p.screenshot({ path: path.join(shots, "page-light.png") });
 
@@ -128,10 +132,10 @@ await p.waitForFunction(() => /No song matched/.test(document.querySelector("#cm
 console.log("✓ SPA navigation re-detects; unknown song shows the picker");
 
 // Manual pick is remembered per video.
-await p.selectOption("#cm-panel .cm-select:not(.cm-more)", "bantu-reethi");
+await p.selectOption("#cm-panel .cm-select:not(.cm-more)", "bantu-riti");
 await p.waitForTimeout(500);
 await p.reload();
-await p.waitForFunction(() => /Bantu/.test(document.querySelector("#cm-panel .cm-title")?.textContent || ""));
+await p.waitForFunction(() => /banTu/.test(document.querySelector("#cm-panel .cm-title")?.textContent || ""));
 console.log("✓ manually chosen song is remembered for the video");
 
 // Ask Claude without a key gives a clear message.
@@ -144,7 +148,7 @@ dark = true;
 await p.goto("https://www.youtube.com/watch?v=V1");
 await p.waitForSelector("#cm-panel .cm-line");
 await seek(25);
-await p.waitForSelector(".cm-line.cm-active[data-ref='a1']");
+await p.waitForSelector(".cm-line.cm-active[data-ref='c1']");
 await p.locator("#cm-panel").screenshot({ path: path.join(shots, "panel-dark.png") });
 
 assert.deepEqual(errors, [], "page errors: " + errors.join("; "));

@@ -3,28 +3,38 @@
 A Chrome extension that shows the lyrics and English meaning of a Carnatic song in YouTube's right-hand sidebar. As the video plays, the line being sung is highlighted.
 
 <p>
-  <img src="docs/panel-light.png" width="360" alt="Sidebar in light mode, highlighting the second pallavi line of Vatapi Ganapatim">
-  <img src="docs/panel-dark.png" width="360" alt="Sidebar in dark mode, highlighting the first anupallavi line">
+  <img src="docs/panel-untimed.png" width="360" alt="Sidebar showing Vatapi Ganapatim with its lyrics and a line-by-line English meaning">
+  <img src="docs/panel-dark.png" width="360" alt="Sidebar in dark mode, with the current line highlighted after syncing">
 </p>
 
 ## How it works
 
-1. **Finding the song.** The extension compares the video title with a song database, allowing for different spellings (*Vathapi / Vaathapi / Vātāpi*, *Bantureethi / Bantu Rīti*). If nothing matches, you can pick the song from the dropdown, import a JSON file, or click **Ask Claude**.
-2. **Timing.** The same kriti never has the same timing twice: sangatis repeat lines, singers return to the pallavi, and alapana or niraval can last any length. So timings are stored **per video** as a list of cues (`{t, ref}`), and a line can appear any number of times.
-   - Press **Sync** and click each line as it begins, or use the keys: **N** for the next line, **R** to repeat the current line, **U** to undo. Chips mark *Alapana, Tanam, Niraval, Kalpanaswaram* and *Tani avartanam*. During niraval, the line being elaborated stays highlighted.
-   - 0.4 s is subtracted from each tap to allow for reaction time. Tapping again at the same moment replaces the earlier mark.
-   - Timings are saved in the browser. Use **More → Export** to share them as JSON, and **Import** to load them on another machine.
-3. **Playback.** The *now playing* card and the highlight follow the playhead. Clicking a timed line jumps the video to it.
+1. **Finding the song.** The extension compares the video title with its database of 223 frequently performed concert pieces, allowing for different spellings (*Vathapi / Vaatapi / vAtApi*, *Bantureethi / banTu rIti*, *Alaipayuthey / alai pAyudE*). Short titles such as *Ilalo* only count when the raga name is in the title too. If nothing matches, pick the song from the dropdown.
+2. **Reading along.** The sidebar lists every line of the song, section by section, each with its English meaning, plus a short summary of the song. That's all you need to follow a concert.
+3. **Optional timing.** To have the current line highlighted, press **Sync** and click each line as it begins (keys: **N** next line, **R** repeat line, **U** undo). Chips mark *Alapana, Tanam, Niraval, Kalpanaswaram* and *Tani avartanam*. Timings are saved per video, because no two performances have the same timing, and can be exported or imported as JSON.
 
-## Built-in songs
+## The song database
 
-| Song | Composer | Raga |
-|---|---|---|
-| Vātāpi Gaṇapatiṃ | Muthuswami Dikshitar | Hamsadhwani |
-| Nagumomu Ganaleni | Tyagaraja | Abheri |
-| Bantu Rīti Koluvu | Tyagaraja | Hamsanadam |
+`src/data/songs.json` is built from two parts:
 
-To add a song, add an entry to `src/data/songs.json` (each line needs a unique `id`, the `text` and its `meaning`; `words` with word-by-word glosses is optional). You can also import a JSON file holding a single song object.
+| Part | Where it comes from |
+|---|---|
+| Lyrics, raga, tala, language | Scraped from [karnatik.com](https://www.karnatik.com) by `tools/scrape_karnatik.py` (one request per second, cached). Each song keeps a link to its source page. |
+| Line-by-line English meanings and summaries | Written for this project in `data/meanings/*.json`. karnatik.com's own meanings are prose paragraphs written by the site, so they aren't copied. |
+
+- **Which songs.** `tools/top_songs.tsv` is a hand-curated list of 223 pieces that come up often in concerts: Tyagaraja (130), Dikshitar (34), Syama Sastri, Swati Tirunal, Purandaradasa, Annamacharya, Sadasiva Brahmendra, Oottukkadu and others. No public dataset of concert frequencies was available, so this list reflects common repertoire rather than measured counts.
+- **Copyright.** The list only includes composers whose works are in the public domain in India (died before 1966). Popular pieces by Papanasam Sivan, Periyasami Thooran and others are left out for that reason.
+- **Accuracy.** The meanings were drafted with AI assistance, and some lines are approximate, especially where the karnatik.com text is irregular. They haven't yet been reviewed by a Sanskrit, Telugu, Tamil or Kannada scholar. Corrections to `data/meanings/*.json` are welcome.
+
+To rebuild or extend the database:
+
+```bash
+python3 tools/scrape_karnatik.py          # fetch lyrics for every row in tools/top_songs.tsv
+python3 tools/show_batch.py 0 20          # print songs 0-19 with numbered lines, to write meanings
+python3 tools/build_songs.py              # merge lyrics + meanings into src/data/songs.json
+```
+
+`build_songs.py` refuses to build if a song's number of meanings doesn't match its number of lines. A song without meanings is left out.
 
 ## "Ask Claude" (optional)
 
@@ -55,17 +65,21 @@ This runs unit tests for title matching and cue lookup, and an end-to-end test. 
 ## Layout
 
 ```
+tools/                scraper, curated song list and database build script
+data/lyrics_raw.json  scraped lyrics (input to the build)
+data/meanings/        line-by-line meanings, one JSON file per batch of songs
 src/manifest.json     MV3 manifest
 src/content.js        sidebar UI, sync mode, playback tracking, SPA navigation
 src/lib/match.js      title → song matching (phonetic key over transliterations)
 src/lib/cues.js       cue model: active cue lookup, seek targets
 src/background.js     song list + Claude generation (bundled with the Anthropic SDK)
-src/data/songs.json   built-in songs
+src/data/songs.json   built song database (generated — edit data/ and rebuild)
 src/options.*         settings page (API key, model)
 ```
 
 ## Ideas for next steps
 
 - A shared, community-maintained timing file keyed by video ID, so popular recordings work without anyone syncing them first.
+- Review of the meanings by native speakers, and word-by-word glosses.
 - Automatic alignment, using the YouTube transcript when one exists or audio-based alignment.
 - Tamil, Telugu, Kannada and Devanagari script display alongside the transliteration.
